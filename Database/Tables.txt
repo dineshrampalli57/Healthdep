@@ -1,0 +1,159 @@
+create database Healthdep;
+
+use Healthdep;
+
+CREATE TABLE `admin` (
+  `name` text,
+  `pass` text
+);
+
+INSERT INTO `admin` VALUES ('admin','admin');
+
+CREATE TABLE `attacker` (
+  `id` int(11) NOT NULL auto_increment,
+  `user` text,
+  `patient` text,
+  `fname` text,
+  `dt` text,
+  `attacktype` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `bank_account` (
+  `id` int(11) NOT NULL auto_increment,
+  `pname` text,
+  `bank` text,
+  `branch` text,
+  `account_no` text,
+  `mobile_no` text,
+  `email_id` text,
+  `total_amount` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `bill` (
+  `id` int(11) NOT NULL auto_increment,
+  `patient` text,
+  `doctor` text,
+  `fname` text,
+  `sch_dt` text,
+  `amount` text,
+  `status` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `department` (
+  `id` int(11) NOT NULL auto_increment,
+  `department` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `doctor` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` text,
+  `pass` text,
+  `email` text,
+  `mobile` text,
+  `addr` text,
+  `dob` text,
+  `gender` text,
+  `pin` text,
+  `location` text,
+  `imagess` longblob,
+  `status` text,
+  `d_hospital` text,
+  `d_department` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `files` (
+  `id` int(11) NOT NULL auto_increment,
+  `fname` text,
+  `ct` text,
+  `trapdoor` text,
+  `sk` text,
+  `rank` int(11) default NULL,
+  `dt` text,
+  `patient` text,
+  `p_hospital` text,
+  `p_doctor` text,
+  `status` text,
+  `disease` text,
+  `age` text,
+  `bloodgroup` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `files_backup` (
+  `id` int(11) NOT NULL auto_increment,
+  `fname` text,
+  `ct` text,
+  `trapdoor` text,
+  `sk` text,
+  `rank` int(11) default NULL,
+  `dt` text,
+  `patient` text,
+  `p_hospital` text,
+  `p_doctor` text,
+  `status` text,
+  `disease` text,
+  `age` text,
+  `bloodgroup` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `hospital` (
+  `id` int(11) NOT NULL auto_increment,
+  `hospital` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `patient` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` text,
+  `pass` text,
+  `email` text,
+  `mobile` text,
+  `addr` text,
+  `dob` text,
+  `gender` text,
+  `pin` text,
+  `location` text,
+  `imagess` longblob,
+  `status` text,
+  `search_per` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `schedule_transaction` (
+  `id` int(11) NOT NULL auto_increment,
+  `patient` text,
+  `doctor` text,
+  `fname` text,
+  `sch_dt` text,
+  `status` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `scheduled_patients` (
+  `id` int(11) NOT NULL auto_increment,
+  `patient` text,
+  `doctor` text,
+  `hospital` text,
+  `sch_dt` text,
+  `sch_time` text,
+  `status` text,
+  `fname` text,
+  `treatment_details` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `transaction` (
+  `id` int(11) NOT NULL auto_increment,
+  `user` text,
+  `fname` text,
+  `task` text,
+  `dt` text,
+  PRIMARY KEY  (`id`)
+);
+
